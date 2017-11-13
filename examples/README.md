@@ -20,9 +20,9 @@ Obviously this style needs a dark background. Shown here with styling on the enc
 
 This style is for use with a light-coloured page and is based on the style used for source code on [meta::cpan](https://metacpan.org).
 
-![ScreenShot](https://raw.githubusercontent.com/1nickt/Dancer2-Plugin-SyntaxHighlight-Perl/master/examples/terminal-dark-code.png)
+![ScreenShot](https://raw.githubusercontent.com/1nickt/Dancer2-Plugin-SyntaxHighlight-Perl/master/examples/background-light-code.png)
 
-![ScreenShot](terminal-dark-output.png)
+![ScreenShot](https://raw.githubusercontent.com/1nickt/Dancer2-Plugin-SyntaxHighlight-Perl/master/examples/background-light-output.png)
 
 [CSS](background-light.css) for `background-light`.
 
