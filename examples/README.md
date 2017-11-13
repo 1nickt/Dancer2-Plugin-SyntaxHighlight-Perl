@@ -14,7 +14,7 @@ Obviously this style needs a dark background. Shown here with styling on the enc
 
 ![ScreenShot](https://raw.githubusercontent.com/1nickt/Dancer2-Plugin-SyntaxHighlight-Perl/master/examples/terminal-dark-output.png)
 
-[CSS](terminal-dark.css) for `terminal-dark`.
+[Download the CSS](https://raw.githubusercontent.com/1nickt/Dancer2-Plugin-SyntaxHighlight-Perl/master/examples/terminal-dark.css) for `terminal-dark`.
 
 ## background-light
 
@@ -24,7 +24,7 @@ This style is for use with a light-coloured page and is based on the style used 
 
 ![ScreenShot](https://raw.githubusercontent.com/1nickt/Dancer2-Plugin-SyntaxHighlight-Perl/master/examples/background-light-output.png)
 
-[CSS](background-light.css) for `background-light`.
+[Download the CSS](https://raw.githubusercontent.com/1nickt/Dancer2-Plugin-SyntaxHighlight-Perl/master/examples/background-light.css) for `background-light`.
 
 
 
