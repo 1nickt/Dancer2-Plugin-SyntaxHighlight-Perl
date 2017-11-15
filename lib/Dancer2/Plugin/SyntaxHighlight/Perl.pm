@@ -1,6 +1,6 @@
 package Dancer2::Plugin::SyntaxHighlight::Perl;
 
-our $VERSION = '0.0003';
+our $VERSION = '0.0004';
 
 use strict; use warnings;
 use Data::Dumper; $Data::Dumper::Indent = $Data::Dumper::Sortkeys = 1;
