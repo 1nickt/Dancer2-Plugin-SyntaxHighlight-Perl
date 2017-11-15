@@ -1,6 +1,6 @@
 package Dancer2::Plugin::SyntaxHighlight::Perl;
 
-our $VERSION = '0.901';
+our $VERSION = '0.0001';
 
 use strict; use warnings;
 use Data::Dumper; $Data::Dumper::Indent = $Data::Dumper::Sortkeys = 1;
@@ -13,18 +13,23 @@ plugin_keywords qw/
 /;
 
 has line_numbers => (
-    is => 'ro',
-    default => sub { $_[0]->config->{'line_numbers'} || 0 },
+    is      => 'lazy',
+    builder => sub { $_[0]->config->{'line_numbers'} || 0 },
+);
+
+has skip_postprocessing => (
+    is => 'lazy',
+    builder => sub { $_[0]->config->{'skip_postprocessing'} || 0 },
 );
 
 sub highlight_perl {
     my ( $self, $code ) = @_;
-warn "HP $_" for @_;
+
     my $perl = $code;
     my $PPI  = PPI::HTML->new( line_numbers => $self->line_numbers );
     my $html = $PPI->html( $perl );
 
-    return $self->_post_process( $html );
+    return $self->_postprocess( $html );
 }
 
 sub highlight_output {
@@ -35,15 +40,16 @@ sub highlight_output {
     my $line_number = 0;
     my $html;
     for ( @lines ) {
-        my $class = ++$line_number == 1 ? 'prompt' : 'word';
+        my $class = ++$line_number == 1 ? 'prompt' : 'output';
         $html .= qq{<span class="$class">$_</span><br>};
     }
 
-    return $self->_post_process( $html );
+    return $self->_postprocess( $html );
 };
 
-sub _post_process {
+sub _postprocess {
     my ( $self, $html ) = @_;
+    return $html if $self->skip_postprocessing;
 
     $html =~ s/<BR>/\n/gi;
     $html =~ s/\n{2}/\n/msg;
@@ -56,7 +62,7 @@ sub _post_process {
 
 =head1 NAME
 
-Dancer2::Plugin::SyntaxHighlight::Perl - produce Perl syntax-highlighted HTML from Perl code in your Dancer2 app
+Dancer2::Plugin::SyntaxHighlight::Perl - generate pretty HTML from Perl code in a Dancer2 app
 
 =head1 DESCRIPTION
 
@@ -79,13 +85,25 @@ This module provides on-the-fly conversion of Perl to syntax-highlighted HTML. F
       };
   };
 
+=head2 HTML template
+
+  <div style="white-space: pre-wrap">
+    [% example_code %]
+  </div>
+
+Or:
+
+  <div>
+    <pre>[%example_code %]</pre>
+  </div>
+
 =head1 FUNCTIONS
 
 =head2 highlight_perl
 
 Takes as input the full pathname of a file, or a filehandle, or a reference to a scalar. Expects what it is given to contain Perl code.
 
-Outputs Perl code as HTML with syntax highlighting, in the form of C<< <span></span> >> tags, with the appropriate class names, around the elements of the Perl code after it has been processed by C<PPI>.
+Outputs Perl code as HTML with syntax highlighting, in the form of C<< <span></span> >> tags, with the appropriate class names, around the elements of the Perl code after it has been parsed by C<PPI>.
 
 If C<line_numbers> is set to true in the Dancer2 config, the output will have line numbers.
 
@@ -93,13 +111,19 @@ For more details on the format of the ouput, see C<PPI::HTML>, or examine the fi
 
 You will need to provide the CSS for the styling, see L<examples/> for examples.
 
+B<Important>: This module removes the C<< <BR> >> tags from the end of the generated HTML lines, so you B<must> enclose the HTML in either C<< <pre></pre> >> tags or an element with C<style="white-space: pre-wrap">>.
+
+You can override this transofrmation by setting C<skip_postprocessing> to true in the Dancer2 config.
+
 =head2 highlight_output
 
-Often when showing Perl code you will want to show the output of the code, This function adds very simple highlighting to the saved output of Perl code.
+Often when showing Perl code you will want to show also the output of the code, This function adds very simple highlighting to the saved output of Perl code.
 
 Takes as input the full pathname of a file, or a filehandle, or a reference to a scalar.
 
 Outputs the content with the first line wrapped in a C<< <span></span> >> tag with the special class C<prompt>, and all other with the class  C<word>.
+
+This generated HTML also must be enclosed in either C<< <pre></pre> >> tags or an element with C<style="white-space: pre-wrap"> (or set C<skip_postprocessing> to true in the Dancer2 config).
 
 =head1 SEE ALSO
 
