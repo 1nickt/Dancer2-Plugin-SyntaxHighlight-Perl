@@ -1,6 +1,7 @@
 use strict; use warnings;
 use FindBin qw/ $RealBin /;
 use Test::More;
+use Path::Tiny;
 use Dancer2;
 use Dancer2::Plugin::SyntaxHighlight::Perl;
 
@@ -10,10 +11,7 @@ chomp( my $wanted = do { local $/; <DATA> } );
 {
     note 'Testing with ref to scalar';
 
-    local $/;
-    open( my $fh, '<', $filename ) or die $!;
-    my $perl = <$fh>;
-
+    my $perl = path( $filename )->slurp;
     ok my $html = highlight_output( \$perl ),            'Got output from plugin';
     is $html, $wanted,                                   'Output is correct';
 }
@@ -22,7 +20,6 @@ chomp( my $wanted = do { local $/; <DATA> } );
     note 'Testing with file';
 
     ok my $html = highlight_output( $filename ),         'Got output from plugin';
-
     is $html, $wanted,                                   'Output is correct';
 }
 

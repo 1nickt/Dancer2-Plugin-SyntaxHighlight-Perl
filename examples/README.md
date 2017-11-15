@@ -2,7 +2,7 @@
 
 This directory contains examples of CSS stylesheets that you could use to style the output of this module.
 
-The examples below use [this example HTML](https://raw.githubusercontent.com/1nickt/Dancer2-Plugin-SyntaxHighlight-Perl/master/examples/generated.html) generated from [this Perl code](https://raw.githubusercontent.com/1nickt/Dancer2-Plugin-SyntaxHighlight-Perl/master/examples/fork-01.pl) *(itself taken from [http://parallel.pl](http://parallel.pl))*.
+The examples below use [this example HTML](https://raw.githubusercontent.com/1nickt/Dancer2-Plugin-SyntaxHighlight-Perl/master/examples/generated.html) generated from [this Perl code](https://raw.githubusercontent.com/1nickt/Dancer2-Plugin-SyntaxHighlight-Perl/master/examples/example.pl).
 
 ## terminal-dark
 
