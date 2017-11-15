@@ -9,7 +9,7 @@ use HTTP::Request::Common;
     use Dancer2;
     use Dancer2::Plugin::SyntaxHighlight::Perl;
     use FindBin qw/ $RealBin /;
-    my $code_filename = "$RealBin/code.perl";
+    my $code_filename = "$RealBin/perl.code";
     set plugins => { 'SyntaxHighlight::Perl' => { line_numbers => 1 } };
     get '/' => sub {
         return highlight_perl( $code_filename );
