@@ -1,6 +1,6 @@
 # NAME
 
-Dancer2::Plugin::SyntaxHighlight::Perl - generate pretty HTML from Perl code in a Dancer2 app
+Dancer2::Plugin::SyntaxHighlight::Perl - Generate pretty HTML from Perl code in a Dancer2 app
 
 # DESCRIPTION
 

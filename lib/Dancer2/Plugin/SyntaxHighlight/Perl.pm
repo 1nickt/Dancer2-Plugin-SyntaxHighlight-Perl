@@ -107,13 +107,13 @@ Outputs Perl code as HTML with syntax highlighting, in the form of C<< <span></s
 
 If C<line_numbers> is set to true in the Dancer2 config, the output will have line numbers.
 
-For more details on the format of the ouput, see C<PPI::HTML>, or examine the files in the L<examples/> directory in this distribution.
+For more details on the format of the ouput, see C<PPI::HTML>, or examine the files in the C<examples/> directory in this distribution.
 
-You will need to provide the CSS for the styling, see L<examples/> for examples.
+You will need to provide the CSS for the styling, see C<examples/> for examples.
 
 B<Important>: This module removes the C<< <BR> >> tags from the end of the generated HTML lines, so you B<must> enclose the HTML in either C<< <pre></pre> >> tags or an element with C<style="white-space: pre-wrap">>.
 
-You can override this transofrmation by setting C<skip_postprocessing> to true in the Dancer2 config.
+You can override this transformation by setting C<skip_postprocessing> to true in the Dancer2 config.
 
 =head2 highlight_output
 
