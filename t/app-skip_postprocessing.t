@@ -1,6 +1,5 @@
 use strict; use warnings;
 use Test::More;
-use Path::Tiny;
 use Dancer2;
 use Plack::Test;
 use HTTP::Request::Common;

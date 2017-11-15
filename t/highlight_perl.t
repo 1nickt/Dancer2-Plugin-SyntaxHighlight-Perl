@@ -1,17 +1,19 @@
 use strict; use warnings;
 use FindBin qw/ $RealBin /;
 use Test::More;
-use Path::Tiny;
 use Dancer2;
 use Dancer2::Plugin::SyntaxHighlight::Perl;
 
-my $code_filename = "$RealBin/code.perl";
+my $code_filename = "$RealBin/perl.code";
 chomp( my $wanted = do { local $/; <DATA> } );
 
 {
     note 'Testing with ref to scalar';
 
-    my $perl = path( $code_filename )->slurp;
+    local $/;
+    open( my $fh, '<', $code_filename ) or die $!;
+    chop( my $perl = <$fh> );
+ 
     ok my $html = highlight_perl( \$perl ),              'Got output from plugin';
 
     is $html, $wanted,                                   'Output is correct';
