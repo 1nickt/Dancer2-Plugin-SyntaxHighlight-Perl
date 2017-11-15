@@ -97,6 +97,14 @@ Or:
     <pre>[%example_code %]</pre>
   </div>
 
+=head1 EXAMPLE OUTPUT
+
+=begin HTML
+
+<p><img src="https://raw.githubusercontent.com/1nickt/Dancer2-Plugin-SyntaxHighlight-Perl/master/examples/background-light-code.png"></p>
+
+=end HTML
+
 =head1 FUNCTIONS
 
 =head2 highlight_perl
