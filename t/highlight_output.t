@@ -1,11 +1,11 @@
-use strict; use warnings; use feature 'say';
+use strict; use warnings;
 use FindBin qw/ $RealBin /;
 use Test::More;
 use Path::Tiny;
 use Dancer2;
 use Dancer2::Plugin::SyntaxHighlight::Perl;
 
-my $code_filename = "$RealBin/code.pl.out";
+my $code_filename = "$RealBin/code.perl.out";
 chomp( my $wanted = do { local $/; <DATA> } );
 
 {

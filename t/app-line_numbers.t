@@ -1,6 +1,5 @@
-use strict; use warnings; use feature 'say';
+use strict; use warnings;
 use Test::More;
-use Path::Tiny;
 use Dancer2;
 use Plack::Test;
 use HTTP::Request::Common;
@@ -10,7 +9,7 @@ use HTTP::Request::Common;
     use Dancer2;
     use Dancer2::Plugin::SyntaxHighlight::Perl;
     use FindBin qw/ $RealBin /;
-    my $code_filename = "$RealBin/code.pl";
+    my $code_filename = "$RealBin/code.perl";
     set plugins => { 'SyntaxHighlight::Perl' => { line_numbers => 1 } };
     get '/' => sub {
         return highlight_perl( $code_filename );

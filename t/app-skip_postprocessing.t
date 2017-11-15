@@ -1,4 +1,4 @@
-use strict; use warnings; use feature 'say';
+use strict; use warnings;
 use Test::More;
 use Path::Tiny;
 use Dancer2;
@@ -10,7 +10,7 @@ use HTTP::Request::Common;
     use Dancer2;
     use Dancer2::Plugin::SyntaxHighlight::Perl;
     use FindBin qw/ $RealBin /;
-    my $code_filename = "$RealBin/code.pl";
+    my $code_filename = "$RealBin/code.perl";
     set plugins => { 'SyntaxHighlight::Perl' => { skip_postprocessing => 1 } };
     get '/' => sub {
         return highlight_perl( $code_filename );
