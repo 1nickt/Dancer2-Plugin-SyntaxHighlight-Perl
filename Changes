@@ -2,6 +2,8 @@ Changes file for Dancer2::Plugin::SyntaxHighlight::Perl
 
 {{$NEXT}}
 
+  - Add example inage to POD
+
 0.0003    2017-11-14 19:32:56-05:00 America/New_York
 
   - Fix broken links in POD
