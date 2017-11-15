@@ -2,13 +2,15 @@ Changes file for Dancer2::Plugin::SyntaxHighlight::Perl
 
 {{$NEXT}}
 
+  - manually specify the minimum Perl version required
+
 0.0006    2017-11-15 09:40:34-05:00 America/New_York
 
   - Fix bad test data
 
 0.0005    2017-11-15 08:41:07-05:00 America/New_York
 
-  - Fix contenst so minimum Perl version required is 5.6
+  - Fix contents so minimum Perl version required is 5.6
 
 0.0004    2017-11-14 19:44:54-05:00 America/New_York
 
