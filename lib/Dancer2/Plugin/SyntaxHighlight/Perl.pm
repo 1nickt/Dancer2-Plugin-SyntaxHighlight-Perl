@@ -7,10 +7,10 @@ use Data::Dumper; $Data::Dumper::Indent = $Data::Dumper::Sortkeys = 1;
 use Dancer2::Plugin;
 use PPI::HTML;
 
-plugin_keywords qw/
+plugin_keywords(qw/
     highlight_perl
     highlight_output
-/;
+/);
 
 has line_numbers => (
     is      => 'lazy',
