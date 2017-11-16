@@ -2,6 +2,8 @@ Changes file for Dancer2::Plugin::SyntaxHighlight::Perl
 
 {{$NEXT}}
 
+  - require the current version of Dancer2 to bring in bug fixes
+
 0.0008    2017-11-15 15:44:48-05:00 America/New_York
 
   - up minimum required Perl version to 5.8.1
